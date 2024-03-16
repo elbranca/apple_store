@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 // import { HomeLayout } from '../layout/index';
-import SecondPage from '@/components/SecondPage.vue';
+// import SecondPage from '@/components/SecondPage.vue';
 import HomeLayout from '@/layout/HomeLayout.vue';
 import Home from '@/components/Home.vue';
 
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'HomeLayout',
@@ -19,7 +19,7 @@ const routes = [
       }
     ]
   },
-  { path: '/second', name: 'SecondPage', component: SecondPage}
+  // { path: '/second', name: 'SecondPage', component: SecondPage}
 ]
 const router = createRouter({ history: createWebHistory(), routes })
 export default router

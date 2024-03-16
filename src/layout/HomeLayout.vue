@@ -7,13 +7,17 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+
+import { defineComponent } from 'vue';
 import HeaderNav from '@/layout/HeaderNav.vue';
-export default {
+
+
+export default defineComponent({
   name: 'HomeLayout',
   components: {
     HeaderNav
   }
-}
+})
 </script>
 <style></style>
