@@ -1,14 +1,13 @@
 <template>
   <div class="card">
     <div class="card__content-top">
-      
       <img src="../assets/img/iphone1.jpeg" alt="">
-      <h2 class="card__name">Iphone 14 Pro Max</h2>
-      <p>{{ product?.name }}</p>
-      <p>Silver, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine</p>
+      <h2 class="card__name">{{ product?.name }}</h2>
+      <p></p>
+      <p>{{ product?.description }}</p>
     </div>
     <div class="card__content-bottom">
-      <p class="card__price">$ 1099</p>
+      <p class="card__price">$ {{ product?.price }}</p>
       <button class="card__button-add">Add</button>
     </div>
   </div>

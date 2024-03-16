@@ -15,12 +15,9 @@
         <h2>Products</h2>
       </div>
       <div class="homeproducts__items">
-        <UiCard :product=productOne></UiCard>
-        <UiCard></UiCard>
-        <UiCard></UiCard>
-        <UiCard></UiCard>
-        <UiCard></UiCard>
-
+        <template  v-for="product in products" :key="product.name">
+          <UiCard :product="product"></UiCard>
+        </template>
       </div>
     </div>
   </div>
@@ -31,23 +28,38 @@ import { defineComponent } from 'vue';
 import UiCard from './UiCard.vue';
 import Product from '@/models/Product';
 
-const productOneObj: Product = {
-  name: 'P1',
-  description: 'P1',
-  price: '2'
-}
 export default defineComponent({
   name: 'Home',
   components:{
     UiCard
   },
   computed:{
-    productOne(): Product{
-      return {
-        name: 'P1',
-        description: 'P1',
-        price: '2'
-      };
+    products(): Product[]{
+      return [{
+        name: 'Iphone 14 Pro Max',
+        description: 'Silver, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine',
+        price: '1099'
+      },
+      {
+        name: 'Iphone 14 Pro',
+        description: 'Silver, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine',
+        price: '999'
+      },
+      {
+        name: 'Iphone 14',
+        description: 'Starlight, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine',
+        price: '799'
+      },
+      {
+        name: 'AirPods',
+        description: '(3rd generation) with MagSafe Charging Case, Dual beamforming microphones, Dual optical sensors, Motion-detecting accelerometer, Up to 5 hours of listening',
+        price: '179'
+      },
+      {
+        name: 'AirPods Pro',
+        description: '(2nd generation), Dual beamforming microphones, Dual optical sensors, Motion-detecting accelerometer, Up to 5 hours of listening time with a single charge',
+        price: '249'
+      }];
     }
   }
 })
