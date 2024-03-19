@@ -8,13 +8,14 @@
     </div>
     <div class="card__content-bottom">
       <p class="card__price">$ {{ product?.price }}</p>
-      <button class="card__button-add">Add</button>
+      <button @click="addProduct" class="card__button-add">Add</button>
     </div>
   </div>
 </template>
 <script lang="ts">
 import  { PropType, defineComponent } from 'vue';
 import Product from '@/models/Product';
+import store from '@/store'
 
   export default defineComponent({
     name: 'UiCard',
@@ -22,7 +23,12 @@ import Product from '@/models/Product';
       product: {
         type: Object as PropType<Product>,
       }
-  }
+    },
+    methods:{
+      addProduct(){
+        store.commit('addProduct', this.product);
+      }
+    }
 
   })
 </script>

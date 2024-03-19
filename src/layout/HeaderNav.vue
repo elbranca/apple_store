@@ -15,7 +15,13 @@
         </div>
       </div>
       <div class="nav-bar__item nav-bar__cart">
-        <div class="nav-bar__item-name nav-bar__item-cart">Cart</div>
+        <div class="nav-bar__item-name nav-bar__item-cart">
+          <p class="nav-bar__cart">Cart
+            <span class="nav-bar__item-count" v-if="getProductsCount > 0">{{ getProductsCount }}</span>
+          </p>
+          
+        </div>
+
       </div>
     </div>
   </div>
@@ -23,16 +29,21 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import store from '@/store'
 
 export default defineComponent({
   name: 'HeaderNav',
   props: {
     msg: String
+  },
+  computed: {
+    getProductsCount(){
+      return store.getters.productsCount;
+    }
   }
 })
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .nav-bar{
     width: 100%;
@@ -70,7 +81,7 @@ export default defineComponent({
   }
   .nav-bar__cart{
     margin-left: 0;
-    margin-right: 13px;
+    margin-right: 0;
   }
   .nav-bar__item-cart{
     background-color: #0d6efd;
@@ -78,8 +89,12 @@ export default defineComponent({
     padding: 5px;
     position: relative;
   }
-  .nav-bar__item-cart::after{
-    content: '1';
+  .nav-bar__item-cart p{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .nav-bar__item-count{
+    color: white;
     border-radius: 20px;
     height: 15px;
     width: 15px;
@@ -87,5 +102,7 @@ export default defineComponent({
     position: absolute;
     font-size: 12px;
     top: -5px;
+    text-align: center;
   }
+
 </style>
