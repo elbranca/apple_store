@@ -14,14 +14,15 @@
           <div class="nav-bar__item-name">Mac</div>
         </div>
       </div>
-      <div class="nav-bar__item nav-bar__cart">
-        <div class="nav-bar__item-name nav-bar__item-cart">
+      <div class="nav-bar__item nav-bar__cart nav-bar__cartWrapper">
+        <div class="nav-bar__item-name nav-bar__item-cart" @mouseover="cartHover = true" @mouseleave="cartHover = false">
           <p class="nav-bar__cart">Cart
             <span class="nav-bar__item-count" v-if="getProductsCount > 0">{{ getProductsCount }}</span>
           </p>
-          
         </div>
-
+        <div class="nav-bar__productList" >
+          <CartProducts></CartProducts>
+        </div>
       </div>
     </div>
   </div>
@@ -30,9 +31,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import store from '@/store'
+import CartProducts from '@/components/CartProducts.vue';
 
 export default defineComponent({
   name: 'HeaderNav',
+  data(){
+    return{
+      cartHover: false
+    }
+  },
+  components:{
+    CartProducts
+  },
   props: {
     msg: String
   },
@@ -82,6 +92,14 @@ export default defineComponent({
   .nav-bar__cart{
     margin-left: 0;
     margin-right: 0;
+  }
+  .nav-bar__cartWrapper{
+    position: relative;
+  }
+  .nav-bar__productList{
+    position: absolute;
+    top: 45px;
+    right: -50px;
   }
   .nav-bar__item-cart{
     background-color: #0d6efd;

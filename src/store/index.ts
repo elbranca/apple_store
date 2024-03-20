@@ -8,6 +8,9 @@ export default createStore({
   getters: {
     productsCount(state){
       return state.products.length;
+    },
+    productsAdded(state){
+      return state.products;
     }
   },
   mutations: {

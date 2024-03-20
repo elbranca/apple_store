@@ -36,26 +36,31 @@ export default defineComponent({
   computed:{
     products(): Product[]{
       return [{
+        id: 'ba555065-8713-4083-b7cf-7542b50a4384',
         name: 'Iphone 14 Pro Max',
         description: 'Silver, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine',
         price: '1099'
       },
       {
+        id:'9380d2b3-3a89-4f0c-a1f9-796e7b840d76',
         name: 'Iphone 14 Pro',
         description: 'Silver, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine',
         price: '999'
       },
       {
+        id: '20df8bda-c42c-4e23-b4ee-9c1a3a82fe8c',
         name: 'Iphone 14',
         description: 'Starlight, 128GB, A15 Bionic chip, 6‑core CPU with 2 performance and 4 efficiency cores, 5‑core GPU, 16‑core Neural Engine',
         price: '799'
       },
       {
+        id: 'aa5778a6-356d-4567-9b95-4ba8a274620f',
         name: 'AirPods',
         description: '(3rd generation) with MagSafe Charging Case, Dual beamforming microphones, Dual optical sensors, Motion-detecting accelerometer, Up to 5 hours of listening',
         price: '179'
       },
       {
+        id: '1c746e3d-e854-40fb-8e6b-03eb6f238fc0',
         name: 'AirPods Pro',
         description: '(2nd generation), Dual beamforming microphones, Dual optical sensors, Motion-detecting accelerometer, Up to 5 hours of listening time with a single charge',
         price: '249'
