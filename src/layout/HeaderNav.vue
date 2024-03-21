@@ -8,10 +8,10 @@
           </div>
         </div>
         <div class="nav-bar__item" id="store" >
-          <div class="nav-bar__item-name" @mouseover="showOption('store-wrapper')" @mouseleave="showOption('')">Store</div>
+          <div class="nav-bar__item-name" @mouseover="showOption('store-wrapper')">Store</div>
         </div>
         <div class="nav-bar__item" id="mac">
-          <div class="nav-bar__item-name" @mouseover="showOption('mac-wrapper')" @mouseleave="showOption('')">Mac</div>
+          <div class="nav-bar__item-name" @mouseover="showOption('mac-wrapper')">Mac</div>
         </div>
       </div>
       <div class="nav-bar__item nav-bar__cart nav-bar__cartWrapper">
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="nav-bar__options">
-    <div class="nav-bar__options-wrapper" id="store-wrapper">
+    <div class="nav-bar__options-wrapper" id="store-wrapper"  @mouseleave="showOption('')">
         <div class="nav-bar__option-column">
           <ul class="nav-bar__option-explore">
             <li class="nav-bar__option-title">Shop</li>
@@ -46,7 +46,7 @@
           </ul>
         </div>
     </div>
-    <div class="nav-bar__options-wrapper" id="mac-wrapper">
+    <div class="nav-bar__options-wrapper" id="mac-wrapper"  @mouseleave="showOption('')">
         <div class="nav-bar__option-column">
           <ul class="nav-bar__option-explore">
             <li class="nav-bar__option-title">Shop</li>
@@ -88,16 +88,14 @@ export default defineComponent({
   },
   methods:{
     showOption(option: any){
-      if(!option){
-        let wrapperElements = document.getElementsByClassName('nav-bar__options-wrapper');
-        Array.from(wrapperElements).forEach((element: any) => {
-            element.setAttribute('style', 'display:none');
-        });
-        // wrapperElements?.forEach((element: any) => {
-        //     element.setAttribute('style', 'display:none');
-        // });
+      
+      let wrapperElements = document.getElementsByClassName('nav-bar__options-wrapper');
+      Array.from(wrapperElements).forEach((element: any) => {
+        element.setAttribute('style', 'display:none');
+      });
+      if(option){
+        document.getElementById(option)?.setAttribute('style','display: flex;');
       }
-      document.getElementById(option)?.setAttribute('style','display: flex;');
     }
   },
   computed: {
